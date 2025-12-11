@@ -41,5 +41,35 @@ Nexus-Talent-HR is a modern HR and Talent Management platform designed to help o
 
 ---
 
-## 📂 Project Structure
+## ⚙️ Tech Stack
+
+### Frontend
+
+- HTML, CSS, JavaScript
+- Framework: Vite + TypeScript
+- Tailwind CSS
+- Frontend assets in the `public` & `src` folders
+
+### Backend
+
+- The backend is organized inside the `Backend/` folder
+- API routes and server logic (Node.js / Express assumed from folder structure)
+- Database connection (configurable via `.env`)
+
+---
+
+## 🚀 Features *(Potential / Planned)*
+
+✔ User authentication (login/register)
+
+✔ Job posting & management
+
+✔ Candidate application tracking
+
+✔ Role-based dashboards
+
+✔ API for HR operations
+
+
+
 

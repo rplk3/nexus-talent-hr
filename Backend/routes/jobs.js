@@ -73,7 +73,7 @@ router.get("/", async (req, res) => {
         res.json(result.rows);
     } catch (err) {
         console.error("Error fetching jobs:", err);
-        res.status(500).json({ message: "Error fetching jobs" });
+        res.status(500).json({ message: "Error fetching jobs", error: err.message });
     }
 });
 

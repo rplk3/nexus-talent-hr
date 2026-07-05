@@ -72,10 +72,16 @@ const Jobs: React.FC = () => {
     const fetchJobs = async () => {
       try {
         const res = await fetch(`${API_BASE}/jobs`);
+        if (!res.ok) {
+          console.error("Failed to fetch jobs, status:", res.status);
+          setJobs([]);
+          return;
+        }
         const data = await res.json();
-        setJobs(data);
+        setJobs(Array.isArray(data) ? data : []);
       } catch (err) {
         console.error("Error fetching jobs:", err);
+        setJobs([]);
       }
     };
     fetchJobs();
@@ -296,7 +302,9 @@ const Jobs: React.FC = () => {
   };
 
   const formatDate = (dateString: string): string => {
+    if (!dateString) return 'Recently';
     const date = new Date(dateString);
+    if (isNaN(date.getTime())) return 'Recently';
     const now = new Date();
     const diffTime = Math.abs(now.getTime() - date.getTime());
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
